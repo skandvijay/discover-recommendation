@@ -1,0 +1,370 @@
+# Discover vNext - Comprehensive .gitignore
+
+# ===============================
+# Environment Variables & Secrets
+# ===============================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+.secrets/
+config/secrets.json
+
+# OpenAI API Keys
+openai_key.txt
+api_keys.txt
+
+# ===============================
+# Python/Backend
+# ===============================
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+backend/venv/
+backend/env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit Test / Coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# ===============================
+# Database Files
+# ===============================
+*.db
+*.sqlite
+*.sqlite3
+database.db
+discover.db
+backend/database.db
+backend/*.db
+backend/*.sqlite
+
+# Database Migrations (if using Alembic)
+alembic/versions/*.py
+!alembic/versions/__init__.py
+
+# ===============================
+# Node.js/Frontend
+# ===============================
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Production Build
+build/
+dist/
+frontend/build/
+frontend/dist/
+
+# Runtime Data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage Directory
+coverage/
+frontend/coverage/
+
+# NYC Test Coverage
+.nyc_output
+
+# Grunt Intermediate Storage
+.grunt
+
+# Bower Dependency Directory
+bower_components
+
+# ESLint Cache
+.eslintcache
+
+# Optional npm Cache Directory
+.npm
+
+# Optional REPL History
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity File
+.yarn-integrity
+
+# TypeScript Cache
+*.tsbuildinfo
+
+# ===============================
+# Redis/Cache
+# ===============================
+dump.rdb
+appendonly.aof
+redis-stable/
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+backend.log
+frontend.log
+server.log
+error.log
+access.log
+
+# Runtime Logs
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ===============================
+# IDE/Editor Files
+# ===============================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PyCharm
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===============================
+# Operating System Files
+# ===============================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===============================
+# Docker
+# ===============================
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# ===============================
+# Temporary Files
+# ===============================
+*.tmp
+*.temp
+tmp/
+temp/
+.tmp/
+.temp/
+
+# ===============================
+# Backup Files
+# ===============================
+*.bak
+*.backup
+*.old
+*.orig
+
+# ===============================
+# Application Specific
+# ===============================
+
+# FastAPI Static Files (if serving static content)
+static/
+media/
+
+# TailwindCSS Generated Files
+frontend/src/styles/output.css
+
+# React Build Files
+frontend/build/static/js/*.map
+frontend/build/static/css/*.map
+
+# Test Files
+test_*.py
+*_test.py
+tests/__pycache__/
+frontend/src/test/
+
+# Mock Data (uncomment if you don't want to track)
+# mock_data.json
+# sample_data.py
+
+# ===============================
+# Documentation Generated Files
+# ===============================
+docs/_build/
+docs/build/
+site/
+
+# ===============================
+# Package Manager Lockfiles (Optional)
+# ===============================
+# Uncomment these if you want to ignore lockfiles
+# package-lock.json
+# yarn.lock
+
+# ===============================
+# Deployment & CI/CD
+# ===============================
+.deployment
+.deploy/
+.serverless/
+.vercel/
+.netlify/
+
+# Kubernetes
+*.kubeconfig
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
+# ===============================
+# Monitoring & Analytics
+# ===============================
+.monitoring/
+analytics/
+metrics/
+
+# ===============================
+# Custom Project Files
+# ===============================
+
+# Recommendation Engine Cache Files
+recommendation_cache/
+user_profiles/
+document_vectors/
+
+# ML Model Files (if you save trained models)
+models/
+*.pkl
+*.joblib
+*.model
+
+# Performance Test Results
+performance_results/
+load_test_results/
+
+# API Documentation Generated Files
+docs/api/
+swagger-ui/
+
+# ===============================
+# End of .gitignore
+# ===============================
