@@ -58,7 +58,7 @@ flowchart TD
     CHECK_QUERIES -->|No| FALLBACK[Company Baseline Documents]
     CHECK_QUERIES -->|Yes| INTELLIGENT[Intelligent Processing Engine]
     
-    INTELLIGENT --> DECAY[Exponential Query Decay<br/>weight = e^(-0.5*i)]
+    INTELLIGENT --> DECAY[Exponential Query Decay<br/>weight = e^-0.5*i]
     DECAY --> PREPROCESS[Intelligent Text Preprocessing<br/>Abbreviation expansion, normalization]
     
     PREPROCESS --> TFIDF[Enhanced TF-IDF Analysis<br/>Trigrams, 10K features, L2 norm]
@@ -109,7 +109,7 @@ Query Importance Weighting:
 • Most recent query: weight = 1.0 (100% influence)
 • Second recent: weight = 0.6 (60% influence) 
 • Third recent: weight = 0.37 (37% influence)
-• Older queries: exponentially decreasing
+• Older queries: exponentially decreasing with e^-0.5*i
 
 Intelligent Content Categorization:
 • Technical Documentation: Implementation guides and API references
