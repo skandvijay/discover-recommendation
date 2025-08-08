@@ -86,7 +86,7 @@ export const userApi = {
 // Search API
 export const searchApi = {
   search: (data: SearchRequest): Promise<AxiosResponse<SearchResponse>> =>
-    api.post('/search', data),
+    api.post('/search/', data),
   
   getQueries: (
     user_id: number,

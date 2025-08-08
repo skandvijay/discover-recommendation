@@ -14,7 +14,7 @@ class CacheService:
         
         # Cache TTL settings
         self.QUERY_HISTORY_TTL = timedelta(hours=24)
-        self.RECOMMENDATIONS_TTL = timedelta(minutes=30) 
+        self.RECOMMENDATIONS_TTL = timedelta(minutes=5)  # Reduced for testing 
         self.INTENT_TTL = timedelta(hours=6)
     
     def _get_user_key(self, user_id: int, key_type: str) -> str:

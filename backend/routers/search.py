@@ -44,7 +44,24 @@ async def search_and_generate(
         
         # Generate answer using LLM (lazy initialization)
         llm_service = LLMService()
-        llm_response = await llm_service.generate_answer(request.query, context)
+        
+        try:
+            llm_response = await llm_service.generate_answer(request.query, context)
+        except Exception as llm_error:
+            # Save query even if LLM fails, but don't save error documents
+            db_query = Query(
+                query_text=request.query,
+                user_id=request.user_id,
+                company_id=request.company_id
+            )
+            db.add(db_query)
+            db.commit()
+            
+            # Return error response without saving document
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail=f"Unable to generate answer: {str(llm_error)}"
+            )
         
         # Save query to database
         db_query = Query(
@@ -57,8 +74,8 @@ async def search_and_generate(
         
         document_id = None
         
-        # Save as document if requested
-        if request.save_as_document:
+        # Save as document if requested (only save successful responses)
+        if request.save_as_document and llm_response.get("success", False):
             db_document = Document(
                 title=llm_response["title"],
                 content=llm_response["answer"],

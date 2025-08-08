@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from 'react-query';
 import {
   companyApi,
@@ -17,6 +17,7 @@ import {
   SearchResponse,
   Recommendation,
   Query,
+  Document as AppDocument,
 } from '../types';
 
 // Companies
@@ -160,6 +161,39 @@ export const useHealthCheck = () => {
 };
 
 // Custom hook for loading state management
+// Documents
+export const useDocuments = (company_id?: number, user_id?: number) => {
+  return useQuery<AppDocument[]>(
+    ['documents', company_id, user_id],
+    async () => {
+      if (!company_id) return [];
+      const response = await documentApi.getAll(company_id, user_id);
+      return response.data;
+    },
+    {
+      enabled: !!company_id,
+    }
+  );
+};
+
+export const useDeleteDocument = () => {
+  const queryClient = useQueryClient();
+  
+  return useMutation<void, Error, { document_id: number; company_id: number; user_id: number }>(
+    async ({ document_id, company_id, user_id }) => {
+      await documentApi.delete(document_id, company_id, user_id);
+    },
+    {
+      onSuccess: (_, variables) => {
+        // Invalidate documents queries after successful deletion
+        queryClient.invalidateQueries(['documents', variables.company_id]);
+        queryClient.invalidateQueries(['documents', variables.company_id, variables.user_id]);
+        queryClient.invalidateQueries(['recommendations', variables.user_id]);
+      },
+    }
+  );
+};
+
 export const useLoadingState = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

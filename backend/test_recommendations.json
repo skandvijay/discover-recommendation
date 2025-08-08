@@ -1,0 +1,142 @@
+[
+  {
+    "id": 15,
+    "title": "Microservices Architecture: Design Patterns and Best Practices",
+    "content": "Microservices architecture breaks monolithic applications into smaller, independent services. Benefits include scalability, technology diversity, and fault isolation. Key patterns include API Gateway, Circuit Breaker, and Event Sourcing. Challenges include distributed system complexity, data consist...",
+    "source": "Architecture Patterns",
+    "confidence": 0.88,
+    "relevance_score": 0.7,
+    "explanation": "Team knowledge - exploring different perspectives.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 13,
+    "title": "Cybersecurity Fundamentals: Threat Detection and Response",
+    "content": "Cybersecurity threats continue to evolve, requiring comprehensive defense strategies. Key components include network security, endpoint protection, identity management, and incident response. Implement defense in depth with firewalls, intrusion detection systems, and security monitoring. Regular sec...",
+    "source": "Security Framework",
+    "confidence": 0.93,
+    "relevance_score": 0.6599999999999999,
+    "explanation": "Team knowledge - exploring different perspectives.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 11,
+    "title": "API Design Principles: RESTful Services and GraphQL",
+    "content": "Well-designed APIs are crucial for modern applications. RESTful APIs follow standard HTTP methods (GET, POST, PUT, DELETE) and status codes. Best practices include consistent naming conventions, proper versioning, and comprehensive documentation. GraphQL offers an alternative approach with strongly ...",
+    "source": "API Design Guide",
+    "confidence": 0.9,
+    "relevance_score": 0.62,
+    "explanation": "Team knowledge - exploring different perspectives.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 9,
+    "title": "Kubernetes Container Orchestration: Deployment and Scaling",
+    "content": "Kubernetes has become the standard for container orchestration, enabling automated deployment, scaling, and management of containerized applications. Key concepts include pods, services, deployments, and ingress controllers. Kubernetes provides self-healing capabilities, horizontal scaling, and serv...",
+    "source": "Container Platform Guide",
+    "confidence": 0.87,
+    "relevance_score": 0.58,
+    "explanation": "Team knowledge - exploring different perspectives.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 7,
+    "title": "DevOps Best Practices: CI/CD Pipeline Implementation",
+    "content": "Continuous Integration and Continuous Deployment (CI/CD) pipelines are essential for modern software development. Key practices include automated testing, code quality gates, infrastructure as code, and deployment automation. Popular tools include Jenkins, GitLab CI, GitHub Actions, and Azure DevOps...",
+    "source": "DevOps Handbook",
+    "confidence": 0.91,
+    "relevance_score": 0.5399999999999999,
+    "explanation": "Team knowledge - exploring different perspectives.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 5,
+    "title": "Introduction to Using Docker: Step-by-Step Guide",
+    "content": "Docker is an open-source platform used for automating the deployment, scaling, and management of applications. It uses containerization technology to bundle an application and its dependencies into a single object called a container. This container can then be easily moved between different environm...",
+    "source": "OpenAI GPT-4",
+    "confidence": 0.85,
+    "relevance_score": 0.49999999999999994,
+    "explanation": "Team knowledge - exploring different perspectives.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 14,
+    "title": "Agile Project Management: Scrum and Kanban Methodologies",
+    "content": "Agile methodologies have revolutionized project management in software development. Scrum provides structured sprints with defined roles (Product Owner, Scrum Master, Development Team) and ceremonies (Sprint Planning, Daily Standups, Retrospectives). Kanban focuses on visual workflow management and ...",
+    "source": "Agile Practices",
+    "confidence": 0.84,
+    "relevance_score": 0.49,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 12,
+    "title": "Frontend Frameworks Comparison: React vs Vue vs Angular",
+    "content": "Modern frontend frameworks have transformed web development. React offers component-based architecture with a large ecosystem and strong community support. Vue.js provides gentle learning curve with excellent documentation and performance. Angular delivers a full-featured framework with TypeScript i...",
+    "source": "Frontend Development",
+    "confidence": 0.86,
+    "relevance_score": 0.47,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 10,
+    "title": "Database Design Patterns: SQL vs NoSQL Decision Framework",
+    "content": "Choosing between SQL and NoSQL databases depends on specific use case requirements. SQL databases excel in ACID compliance, complex queries, and structured data. Popular options include PostgreSQL, MySQL, and SQL Server. NoSQL databases offer horizontal scaling and flexible schemas, with MongoDB for...",
+    "source": "Database Architecture",
+    "confidence": 0.85,
+    "relevance_score": 0.45,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 8,
+    "title": "Python for Data Science: NumPy, Pandas, and Scikit-learn",
+    "content": "Python has become the de facto language for data science due to its rich ecosystem of libraries. NumPy provides fundamental array operations and mathematical functions. Pandas offers powerful data manipulation and analysis tools with DataFrames. Scikit-learn delivers comprehensive machine learning a...",
+    "source": "Data Science Guide",
+    "confidence": 0.89,
+    "relevance_score": 0.43,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 6,
+    "title": "Introduction to Cloud Computing: AWS vs Azure vs GCP",
+    "content": "Cloud computing has revolutionized how businesses deploy and manage their IT infrastructure. Amazon Web Services (AWS) leads the market with comprehensive services including EC2, S3, and Lambda. Microsoft Azure provides strong enterprise integration with Office 365 and Active Directory. Google Cloud...",
+    "source": "Cloud Architecture Guide",
+    "confidence": 0.88,
+    "relevance_score": 0.41000000000000003,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 4,
+    "title": "Understanding Machine Learning: Algorithms, Applications, and Impact",
+    "content": "Machine learning is a subset of artificial intelligence (AI) that focuses on the development of computer programs that can access data and learn from it independently. It's based on the idea that systems can learn from data, identify patterns, and make decisions with minimal human intervention. \n\nMa...",
+    "source": "OpenAI GPT-4",
+    "confidence": 0.85,
+    "relevance_score": 0.39,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 3,
+    "title": "AI Advancements in Various Industries and Applications",
+    "content": "As an AI, I don't have any specific information related to how AI is evolving in a specific company such as TechCorp. However, AI is generally being utilized across various industries to automate processes, improve efficiency, and provide insights from data analysis. Companies are integrating AI tec...",
+    "source": "OpenAI GPT-4",
+    "confidence": 0.85,
+    "relevance_score": 0.38,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  },
+  {
+    "id": 1,
+    "title": "Title: Exploring Machine Learning: Algorithms, Applications, and Types",
+    "content": "Machine learning is a subset of artificial intelligence (AI) that involves the study of computer algorithms that improve automatically through experience and by the use of data. It's seen as a method of data analysis that automates analytical model building. \n\nIn machine learning, systems are enable...",
+    "source": "OpenAI GPT-4",
+    "confidence": 0.85,
+    "relevance_score": 0.37,
+    "explanation": "Your own content for reference.",
+    "created_at": "2025-08-05T12:00:00"
+  }
+]
