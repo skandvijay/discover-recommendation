@@ -156,15 +156,73 @@ flowchart LR
     QUALITY --> RANK
     ALIGNMENT --> RANK
     
-    classDef enterprise fill:#1a237e
-    classDef intelligence fill:#283593
-    classDef processing fill:#3949ab
-    classDef scoring fill:#3f51b5
+    classDef enterprise fill:#e8f5e8
+    classDef intelligence fill:#fff3e0
+    classDef processing fill:#e3f2fd
+    classDef scoring fill:#fce4ec
     
     class ANALYZE,EXPAND,WEIGHT enterprise
     class TFIDF,NGRAMS,VECTORS,SIMILARITY intelligence
     class BOOST,TITLE,DENSITY,QUALITY,ALIGNMENT processing
     class RANK scoring
+```
+
+### Complete User Query Journey & Recommendation Flow
+
+This diagram shows the complete journey from user query input to final recommendations, including cache handling and new user scenarios:
+
+```mermaid
+flowchart TD
+    USER[User Submits Query] --> VALIDATE{Validate User & Company}
+    VALIDATE -->|Invalid| AUTH_ERROR[Authentication Error]
+    VALIDATE -->|Valid| CACHE_CHECK[Check Redis Cache<br/>Key: user_id + company_id]
+    
+    CACHE_CHECK -->|Cache Hit| SERVE_CACHED[Serve Cached Results<br/>5min TTL]
+    CACHE_CHECK -->|Cache Miss| QUERY_HISTORY[Fetch User Query History]
+    
+    QUERY_HISTORY --> USER_TYPE{User Type Check}
+    USER_TYPE -->|New User<br/>No History| NEW_USER_FLOW[New User Handling]
+    USER_TYPE -->|Existing User<br/>Has History| EXISTING_USER_FLOW[Existing User Processing]
+    
+    NEW_USER_FLOW --> COMPANY_BASELINE[Get Company Baseline<br/>Most Popular Documents]
+    COMPANY_BASELINE --> BASIC_SCORING[Basic Quality Scoring]
+    BASIC_SCORING --> FINAL_RANK
+    
+    EXISTING_USER_FLOW --> INTENT_ANALYSIS[Intent Signal Detection]
+    INTENT_ANALYSIS --> QUERY_WEIGHTING[Apply Query Weighting<br/>Recent: 1.0x, Older: 0.6x, 0.37x...]
+    
+    QUERY_WEIGHTING --> SEMANTIC_PROCESSING[Semantic Text Processing<br/>Abbreviation expansion<br/>Domain normalization]
+    
+    SEMANTIC_PROCESSING --> TFIDF_ANALYSIS[Enhanced TF-IDF<br/>10K features, trigrams]
+    TFIDF_ANALYSIS --> DOC_MATCHING[Document Matching Engine]
+    
+    DOC_MATCHING --> MULTI_SCORING[Multi-Factor Scoring]
+    MULTI_SCORING --> TITLE_BOOST[Title Relevance 0-0.8]
+    MULTI_SCORING --> KEYWORD_BOOST[Keyword Density 0-0.5]
+    MULTI_SCORING --> QUALITY_BOOST[Quality Confidence 0-0.2]
+    MULTI_SCORING --> PATTERN_BOOST[Semantic Alignment 0-0.3]
+    
+    TITLE_BOOST --> FINAL_RANK[Final Ranking Algorithm]
+    KEYWORD_BOOST --> FINAL_RANK
+    QUALITY_BOOST --> FINAL_RANK
+    PATTERN_BOOST --> FINAL_RANK
+    
+    FINAL_RANK --> CACHE_STORE[Store in Redis Cache<br/>5min TTL]
+    CACHE_STORE --> DELIVER[Deliver Personalized<br/>Recommendations]
+    
+    classDef userAction fill:#e8f5e8
+    classDef cacheLayer fill:#e3f2fd
+    classDef newUser fill:#fff3e0
+    classDef processing fill:#f3e5f5
+    classDef scoring fill:#e1f5fe
+    classDef output fill:#fce4ec
+    
+    class USER,VALIDATE userAction
+    class CACHE_CHECK,SERVE_CACHED,CACHE_STORE cacheLayer
+    class NEW_USER_FLOW,COMPANY_BASELINE,BASIC_SCORING newUser
+    class INTENT_ANALYSIS,QUERY_WEIGHTING,SEMANTIC_PROCESSING,TFIDF_ANALYSIS,DOC_MATCHING processing
+    class MULTI_SCORING,TITLE_BOOST,KEYWORD_BOOST,QUALITY_BOOST,PATTERN_BOOST scoring
+    class FINAL_RANK,DELIVER output
 ```
 
 ### Intent Signal Detection & Recommendation Decision Flow
